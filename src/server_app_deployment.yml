@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-app-dep
+  labels:
+    app: server-app
+  annotations:
+    prometheus.io/scrape: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server-app
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+      labels:
+        app: server-app
+    spec:
+      containers:
+        - name: server-app
+          image: 192.168.33.10:5000/server-app:v1.0.0
+          ports:
+            - containerPort: 8080

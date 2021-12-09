@@ -1,0 +1,4 @@
+flask
+flask_pymongo
+prometheus_client
+prometheus_flask_exporter

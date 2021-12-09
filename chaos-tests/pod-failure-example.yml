@@ -1,0 +1,15 @@
+kind: PodChaos
+apiVersion: chaos-mesh.org/v1alpha1
+metadata:
+  namespace: default
+  name: pod-failure-example
+spec:
+  duration: '30s'
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      app: mongo
+  mode: all
+  action: pod-failure
+  gracePeriod: 0
